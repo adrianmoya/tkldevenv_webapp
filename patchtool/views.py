@@ -4,12 +4,12 @@ from django.conf import settings
 import glob
 from django.template import RequestContext
 from subprocess import * 
-from os import listdir
+import os.path
 from tkldevenv.patchtool.utils import is_running
 
 def patchtool_index(request):
    running = is_running('/usr/local/bin/tklpatch')
-   if running:
+   if running != '':
      return HttpResponseRedirect('status/')
    baseimages = list_existing_images()
    patches = glob.glob("/srv/tklpatch/patches/*")
@@ -71,6 +71,9 @@ def last_patch_run():
    return [baseimage,patch]
 
 def list_images(request):
+   running = is_running('/usr/local/bin/tklpatch-getimage') 
+   if len(running) > 0:
+      return HttpResponseRedirect('/patchtool/getimage/')
    imagelist = Popen(['tklpatch-getimage','--list'],stdout=PIPE).communicate()[0]
    imagelist = imagelist.split("\n")
    imagelist.pop() #Remove empty element
@@ -79,13 +82,16 @@ def list_images(request):
 
 def get_image(request):
    running = is_running('/usr/local/bin/tklpatch-getimage')
-   if not running:
-      image = request.POST['image']
-      Popen(['tklpatch-getimage',image])
-      status = 'Downloading'
+   message=''
+   if len(running) > 0:
+      image = running.split()[3]
    else:
-      status = 'Busy'
-      image = 'other image'
-   return render_to_response('patchtool/getimage.html',
-      {"status": status,
-       "image": image}) 
+      if request.POST.has_key('image'):
+	 image = request.POST['image']
+	 if os.path.exists('/srv/tklpatch/base-images/'+image+'.iso'):
+	    message = 'File '+image+'.iso already exists'
+         else:
+            Popen(['tklpatch-getimage',image])
+      else:
+         return HttpResponseRedirect('/patchtool')
+   return render_to_response('patchtool/getimage.html',{"image": image, "message": message})

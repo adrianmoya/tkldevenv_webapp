@@ -58,6 +58,15 @@ border-radius-bottomright:          6px;
 border-top: none;
 }
 
+.center{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#backlink{
+  width: 150px;
+}
+
 #baseimagetable{
   margin-left: auto;
   margin-top: 20px;
