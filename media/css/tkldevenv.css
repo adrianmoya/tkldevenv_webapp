@@ -1,0 +1,81 @@
+#credits, h1 {
+  text-align: center;
+}
+
+#header, #footer {
+  background: #b9c7d2;
+}
+
+#content {
+  background: #e2e8ef;
+}
+
+.logtextarea {
+  width: 90%;
+  height: 400px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.blue {
+  color: #0000FF;
+}
+
+.green {
+  color: #00FF00;
+}
+
+#footer {
+  height: 50px;
+}
+
+#credits {
+  margin-top: 15px;
+}
+
+.round{
+-moz-border-radius: 8px;
+-webkit-border-radius: 8px;
+border-radius: 8px;
+}
+.roundTop{
+-moz-border-radius-topleft:         6px;
+-moz-border-radius-topright:        6px;
+-webkit-border-top-left-radius:     6px;
+-webkit-border-top-right-radius:    6px;
+border-radius-topleft:              6px;
+border-radius-topright:             6px;
+}
+.roundBottom{
+-moz-border-radius-bottomleft:      6px;
+-moz-border-radius-bottomright:     6px;
+-webkit-border-bottom-left-radius:  6px;
+-webkit-border-bottom-right-radius: 6px;
+border-radius-bottomleft:           6px;
+border-radius-bottomright:          6px;
+border-top: none;
+}
+
+#baseimagetable{
+  margin-left: auto;
+  margin-top: 20px;
+  margin-right: auto;
+}
+
+#baseimagetable .odd{
+  background: #e8edf4;
+}
+
+#baseimagetable .even{
+  background: #e2e8ef;
+}
+
+#baseimagetable th{
+  background: #b9c7d2;
+}
+
+#baseimagetable td{
+  padding: 5px;
+} 

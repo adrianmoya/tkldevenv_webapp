@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+{% ifequal status "Downloading" %}
+<p>Downloading <span class="bold"> {{ image }}.iso</span></p>
+{% else %}
+{% endifequal %}
+{% endblock %}

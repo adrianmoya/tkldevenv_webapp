@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="POST" action="/patchtool/apply/">
+{% csrf_token %}
+<p>Base Image: <select name="baseimage">
+<option value="">Select image to patch</option>
+{% for x in baseimages %}
+   <option>{{ x }}</option>
+{% endfor %}
+</select><a href="listimages/">Get more base images</a>
+<p>Patch to apply: <select name="patch">
+<option value="">Select patch to apply</option>
+{% for x in patches %}
+   <option>{{ x }}</option>
+{% endfor %}
+</select>
+<input type="submit" value="APPLY"/>
+{% endblock %}

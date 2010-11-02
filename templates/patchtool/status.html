@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<p>Patching base image <span class="bold"> {{ baseimage }}.iso</span> with patch <span class="bold"> {{ patch }} </span></p>
+<p>Status: 
+{% ifequal status "Running" %}
+<span class="bold green">Running. <a href="/status/{{ baseimage }}/{{ patch }}">Refresh Status</a>
+{% else %}
+<span class="bold blue">Finished.</span>
+{% endifequal %}
+</span></p>
+<textarea id="tklpatchlog" class="logtextarea" readonly="readonly">
+{{ log }}
+</textarea>
+{% endblock %}
