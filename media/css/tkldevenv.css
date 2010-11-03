@@ -1,4 +1,4 @@
-#credits, h1 {
+#credits, h1, h2, h3 {
   text-align: center;
 }
 
@@ -67,24 +67,39 @@ border-top: none;
   width: 150px;
 }
 
-#baseimagetable{
+#baseimagetable, #projectlisttable{
   margin-left: auto;
   margin-top: 20px;
   margin-right: auto;
+  width: 600px;
 }
 
-#baseimagetable .odd{
+#baseimagetable .odd, #projectlisttable .odd{
   background: #e8edf4;
 }
 
-#baseimagetable .even{
+#baseimagetable .even, #projectlisttable .even{
   background: #e2e8ef;
 }
 
-#baseimagetable th{
+#baseimagetable th, #projectlisttable th{
   background: #b9c7d2;
 }
 
-#baseimagetable td{
+#baseimagetable td, #projectlisttable td{
   padding: 5px;
 } 
+
+#nav {
+  margin: 0px;
+  padding: 0px;
+}
+
+#nav li {
+  margin: 0px;
+  padding: 0px;
+  display: inline;
+  padding: 10px 20px 10px 20px;
+}
+
+
