@@ -31,23 +31,23 @@ def apply_patch(request):
    return HttpResponseRedirect('../status/')
 
 def status(request):
-   running = is_running('/usr/local/bin/tklpatch')
-   if running:
-      status='Running'
-   else:
-      status='Finished'
-   lastpatch = last_patch_run()
-   baseimage = lastpatch[0]
-   patch = lastpatch[1]
-   logfile = settings.TKLPATCH_LOGS_ROOT+baseimage+'-'+patch+'.log'
-   log = ''
-   try:
+    running = is_running('/usr/local/bin/tklpatch')
+    if running:
+        status='Running'
+    else:
+        status='Finished'
+    lastpatch = last_patch_run()
+    baseimage = lastpatch[0]
+    patch = lastpatch[1]
+    logfile = settings.TKLPATCH_LOGS_ROOT+baseimage+'-'+patch+'.log'
+    log = ''
+    try:
      with open(logfile, 'r') as f:
-       for line in f:
-          log += line
-   except IOError:
-     log = "Not available"
-   return render_to_response('patchtool/status.html',
+        for line in f:
+            log += line
+    except IOError:
+        log = "Not available"
+    return render_to_response('patchtool/status.html',
      {"baseimage": baseimage,
       "patch": patch,
       "status": status,

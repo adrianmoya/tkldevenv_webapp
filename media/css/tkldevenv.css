@@ -6,6 +6,10 @@
   background: #b9c7d2;
 }
 
+#navbar {
+  background: #376990;
+}
+
 #content {
   background: #e2e8ef;
 }
@@ -93,8 +97,20 @@ border-top: none;
 #nav {
   margin: 0px;
   padding: 0px;
+  color: #ffffff;
 }
 
+#nav a:link, #nav a:visited {
+  color: #ffffff;
+}
+
+#nav a:hover, #nav a:active {
+  color: #fcff27;
+}
+
+#nav a{
+   text-decoration: none;
+}
 #nav li {
   margin: 0px;
   padding: 0px;
