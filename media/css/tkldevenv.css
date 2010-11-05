@@ -71,11 +71,14 @@ border-top: none;
   width: 150px;
 }
 
-#baseimagetable, #projectlisttable{
-  margin-left: auto;
+#baseimagetable {
   margin-top: 20px;
-  margin-right: auto;
   width: 600px;
+}
+
+#projectlisttable {
+  margin-top: 20px;
+  width: 800px;
 }
 
 #baseimagetable .odd, #projectlisttable .odd{
@@ -118,4 +121,6 @@ border-top: none;
   padding: 10px 20px 10px 20px;
 }
 
-
+p {
+  margin-top: 10px;
+}
