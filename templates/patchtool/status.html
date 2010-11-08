@@ -3,9 +3,9 @@
 <p>Patching base image <span class="bold"> {{ baseimage }}.iso</span> with patch <span class="bold"> {{ patch }} </span></p>
 <p>Status: 
 {% ifequal status "Running" %}
-<span class="bold green">Running. <a href="/status/{{ baseimage }}/{{ patch }}">Refresh Status</a>
+<span class="bold green">Running<a href="/patchtool/status">Refresh Status</a>
 {% else %}
-<span class="bold blue">Finished.</span>
+<span class="bold blue">Stopped</span>
 {% endifequal %}
 </span></p>
 <textarea id="tklpatchlog" class="logtextarea" readonly="readonly">
