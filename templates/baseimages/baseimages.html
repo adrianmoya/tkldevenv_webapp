@@ -1,0 +1,16 @@
+{% extends "base_baseimages.html" %}
+{% block content %}
+<h3>List of available images</h3>
+ <table id="baseimagelisttable" class="center">
+<thead>
+	<tr><th>Image Name</th><th>Actions</th></tr>
+</thead>
+<tbody>
+	{% for x in baseimagelist %}
+  <tr><td>{{ x.name }}</td><td>-</td></tr>
+	{% endfor %}
+</tbody>
+</table>
+
+{% endblock %}
+

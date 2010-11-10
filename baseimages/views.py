@@ -1,0 +1,31 @@
+from django.shortcuts import render_to_response 
+from django.http import HttpResponseRedirect
+from django.template import RequestContext
+from subprocess import Popen, PIPE
+import os.path
+from tkldevenv.patchtool.utils import is_running
+import glob
+def list_images(request):
+    running = is_running('/usr/local/bin/tklpatch-getimage') 
+    if len(running) > 0:
+        return HttpResponseRedirect('/patchtool/getimage/')
+    imagelist = Popen(['tklpatch-getimage','--list'],stdout=PIPE).communicate()[0]
+    imagelist = imagelist.split("\n")
+    imagelist.pop() #Remove empty element
+    return render_to_response('patchtool/listimages.html',{"imagelist": imagelist}, context_instance=RequestContext(request))
+
+def get_image(request):
+    running = is_running('/usr/local/bin/tklpatch-getimage')
+    message=''
+    if len(running) > 0:
+        image = running.split()[3]
+    else:
+        if request.POST.has_key('image'):
+            image = request.POST['image']
+            if os.path.exists('/srv/tklpatch/base-images/'+image+'.iso'):
+                message = 'File '+image+'.iso already exists'
+            else:
+                Popen(['tklpatch-getimage',image])
+        else:
+            return HttpResponseRedirect('/patchtool')
+    return render_to_response('patchtool/getimage.html',{"image": image, "message": message})
