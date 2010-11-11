@@ -1,0 +1,8 @@
+{% extends "baseimages/base_baseimages.html" %}
+{% block content %}
+{% ifequal message "" %}
+<p>Downloading <span class="bold"> {{ image }}.iso</span></p>
+{% else %}
+<p>{{ message }}</p>
+{% endifequal %}
+{% endblock %}

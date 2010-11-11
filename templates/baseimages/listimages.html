@@ -1,0 +1,20 @@
+{% extends "baseimages/base_baseimages.html" %}
+{% block content %}
+<table id="baseimagetable" class="center">
+   <thead>
+      <tr><th>Available Images</th><th>Actions</th></tr>
+   </thead>
+   <tbody>
+ {% for x in imagelist %}
+     <tr class="{% cycle 'odd' 'even' %}">
+         <td>{{ x }}</td>
+	 <td><form method="POST" action="../getimage/">{% csrf_token %}
+		<input type="hidden" name="image" value="{{ x }}">
+ 		<input type="submit" value="Download">
+	</form></td>
+      </tr>
+ {% endfor %}
+  </tbody>
+</table>
+<div id="backlink" class="center"><a href="/patchtool">Back to Patchtool</a></div>
+{% endblock %}
