@@ -1,9 +1,0 @@
-{% extends "base.html" %}
-{% block content %}
-{% ifequal message "" %}
-<p>Downloading <span class="bold"> {{ image }}.iso</span></p>
-{% else %}
-<p>{{ message }}</p>
-{% endifequal %}
-<div id="backlink" class="center"><a href="/patchtool">Back to Patchtool</a></div>
-{% endblock %}

@@ -3,16 +3,28 @@ from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from subprocess import Popen, PIPE
 import os.path
-from tkldevenv.patchtool.utils import is_running
+from tkldevenv.utils import is_running, list_images
 import glob
-def list_images(request):
+
+def images_index(request):
+    baseimagelist = list_images()
+    return render_to_response('baseimages/baseimages.html',{"baseimagelist": baseimagelist})
+
+def available_images(request):
     running = is_running('/usr/local/bin/tklpatch-getimage') 
     if len(running) > 0:
-        return HttpResponseRedirect('/patchtool/getimage/')
+        return HttpResponseRedirect('/baseimages/getimage/')
     imagelist = Popen(['tklpatch-getimage','--list'],stdout=PIPE).communicate()[0]
     imagelist = imagelist.split("\n")
     imagelist.pop() #Remove empty element
-    return render_to_response('patchtool/listimages.html',{"imagelist": imagelist}, context_instance=RequestContext(request))
+    baseimagelist = list_images()
+    for x in baseimagelist:
+        image = x[:-4]
+        try:
+            imagelist.remove(image)
+        except:
+            pass
+    return render_to_response('baseimages/listimages.html',{"imagelist": imagelist}, context_instance=RequestContext(request))
 
 def get_image(request):
     running = is_running('/usr/local/bin/tklpatch-getimage')
@@ -27,5 +39,5 @@ def get_image(request):
             else:
                 Popen(['tklpatch-getimage',image])
         else:
-            return HttpResponseRedirect('/patchtool')
-    return render_to_response('patchtool/getimage.html',{"image": image, "message": message})
+            return HttpResponseRedirect('/baseimages')
+    return render_to_response('baseimages/getimage.html',{"image": image, "message": message})

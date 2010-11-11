@@ -6,10 +6,6 @@
   background: #b9c7d2;
 }
 
-#navbar {
-  background: #376990;
-}
-
 #content {
   background: #e2e8ef;
 }
@@ -81,40 +77,62 @@ border-top: none;
   width: 800px;
 }
 
-#baseimagetable .odd, #projectlisttable .odd{
+#baseimagetable .odd,
+#projectlisttable .odd{
   background: #e8edf4;
 }
 
-#baseimagetable .even, #projectlisttable .even{
+#baseimagetable .even,
+#projectlisttable .even{
   background: #e2e8ef;
 }
 
-#baseimagetable th, #projectlisttable th{
+#baseimagetable th,
+#projectlisttable th{
   background: #b9c7d2;
 }
 
-#baseimagetable td, #projectlisttable td{
+#baseimagetable td,
+#projectlisttable td{
   padding: 5px;
 } 
 
-#nav {
+#navbar {
+  background: #376990;
+}
+
+#subnav {
+    background: #b9c7d2;
+}
+
+#nav,
+#subnav{
   margin: 0px;
   padding: 0px;
   color: #ffffff;
 }
 
-#nav a:link, #nav a:visited {
+#nav a:link,
+#nav a:visited,
+#subvav a:link,
+#subnav a:visited {
   color: #ffffff;
 }
 
-#nav a:hover, #nav a:active {
+#nav a:hover,
+#nav a:active,
+#subnav a:hover,
+#subnav a:active {
   color: #fcff27;
 }
 
-#nav a{
+#nav a,
+#subnav a {
    text-decoration: none;
 }
-#nav li {
+
+#nav li,
+#subnav li {
   margin: 0px;
   padding: 0px;
   display: inline;
