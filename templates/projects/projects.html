@@ -1,0 +1,16 @@
+{% extends "projects/base_projects.html" %}
+{% block content %}
+<h3>List of available projects</h3>
+ <table id="projectlisttable" class="center">
+<thead>
+	<tr><th>Project Name</th><th>Last Built</th><th>Actions</th></tr>
+</thead>
+<tbody>
+	{% for x in projectlist %}
+  <tr><td>{{ x.name }}</td><td>{{ x.mtime }}</td><td>-</td></tr>
+	{% endfor %}
+</tbody>
+</table>
+
+{% endblock %}
+

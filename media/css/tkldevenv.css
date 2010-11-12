@@ -77,22 +77,30 @@ border-top: none;
   width: 800px;
 }
 
+#patchestable {
+  margin-top: 20px;
+  width: 800px;
+}
 #baseimagetable .odd,
+#patchestable .odd,
 #projectlisttable .odd{
   background: #e8edf4;
 }
 
 #baseimagetable .even,
+#patchestable .even,
 #projectlisttable .even{
   background: #e2e8ef;
 }
 
 #baseimagetable th,
+#patchestable th,
 #projectlisttable th{
   background: #b9c7d2;
 }
 
 #baseimagetable td,
+#patchestable td,
 #projectlisttable td{
   padding: 5px;
 } 

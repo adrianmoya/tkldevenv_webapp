@@ -10,6 +10,8 @@ urlpatterns = patterns('',
     # Example:
     (r'^patchtool/', include('tkldevenv.patchtool.urls')),
     (r'^baseimages/', include('tkldevenv.baseimages.urls')),
+    (r'^patches/', include('tkldevenv.patches.urls')),
+    (r'^projects/', include('tkldevenv.projects.urls')),
     (r'^site_media/(?P<path>.*)$', 'django.views.static.serve',
         {'document_root': settings.STATIC_DOC_ROOT}),
     (r'^$', main)
