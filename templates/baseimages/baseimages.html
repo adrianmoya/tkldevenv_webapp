@@ -6,9 +6,13 @@
 	<tr><th>Image Name</th><th>Actions</th></tr>
 </thead>
 <tbody>
-	{% for x in baseimagelist %}
-  <tr><td>{{ x }}</td><td>-</td></tr>
-	{% endfor %}
+    {% if baseimagelist %}
+	    {% for x in baseimagelist %}
+            <tr><td>{{ x }}</td><td>-</td></tr>
+	    {% endfor %}
+    {% else %}
+        <tr><td colspan=2><p class="centeredtext">No base images available</p></td></tr>
+    {% endif %}
 </tbody>
 </table>
 

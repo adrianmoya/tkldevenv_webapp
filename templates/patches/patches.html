@@ -6,9 +6,13 @@
 	<tr><th>Patch Name</th><th>Last Built</th><th>Actions</th></tr>
 </thead>
 <tbody>
-	{% for x in patcheslist %}
-    <tr><td>{{ x.name }}</td><td>{{ x.lastbuilt }}</td><td>-</td></tr>
-	{% endfor %}
+    {% if patchestable %}
+    	{% for x in patcheslist %}
+            <tr><td>{{ x.name }}</td><td>{{ x.lastbuilt }}</td><td>-</td></tr>
+    	{% endfor %}
+    {% else %}
+        <tr><td colspan=3><p class="centeredtext">No patches available</p></td></tr>
+    {% endif %}
 </tbody>
 </table>
 

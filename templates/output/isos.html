@@ -1,0 +1,20 @@
+{% extends "output/base_output.html" %}
+{% block content %}
+<h3>Patched ISOs</h3>
+ <table id="patchedisostable" class="center">
+<thead>
+	<tr><th>Image Name</th><th>Actions</th></tr>
+</thead>
+<tbody>
+    {% if isolist %}
+	    {% for x in isolist %}
+            <tr><td>{{ x }}</td><td>-</td></tr>
+    	{% endfor %}
+    {% else %}
+    <tr><td colspan=2><p class="centeredtext">No patched ISOs available</p></td></tr>
+    {% endif %}
+</tbody>
+</table>
+
+{% endblock %}
+

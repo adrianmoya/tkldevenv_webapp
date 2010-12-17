@@ -26,3 +26,8 @@ def lastupdated(filename):
     except:
        mtime = "Not available"
     return mtime
+
+def list_output_isos():
+    isos = glob.glob("/srv/tklpatch/patched-isos/*")
+    isos = [x.replace('/srv/tklpatch/patched-isos/','') for x in isos]
+    return isos

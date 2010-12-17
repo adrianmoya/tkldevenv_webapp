@@ -6,9 +6,13 @@
 	<tr><th>Project Name</th><th>Last Built</th><th>Actions</th></tr>
 </thead>
 <tbody>
-	{% for x in projectlist %}
-  <tr><td>{{ x.name }}</td><td>{{ x.mtime }}</td><td>-</td></tr>
-	{% endfor %}
+    {% if projectlist %}
+	    {% for x in projectlist %}
+            <tr><td>{{ x.name }}</td><td>{{ x.mtime }}</td><td>-</td></tr>
+	    {% endfor %}
+    {% else %}
+    <tr><td colspan=3><p class="centeredtext">No projects available</p></td></tr>
+    {% endif %}
 </tbody>
 </table>
 
