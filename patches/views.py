@@ -1,6 +1,6 @@
 from django.shortcuts import render_to_response 
-from tkldevenv.utils import list_patches
-from tkldevenv.utils import lastupdated
+from tkldevenv_webapp.utils import list_patches
+from tkldevenv_webapp.utils import lastupdated
 import os.path
 
 def patches_index(request):

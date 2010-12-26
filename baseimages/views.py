@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from subprocess import Popen, PIPE
 import os.path
-from tkldevenv.utils import is_running, list_images
+from tkldevenv_webapp.utils import is_running, list_images
 import glob
 
 def images_index(request):

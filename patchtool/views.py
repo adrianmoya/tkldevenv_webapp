@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.conf import settings
 from django.template import RequestContext
 from subprocess import Popen, PIPE
-from tkldevenv.utils import is_running, list_images, list_patches
+from tkldevenv_webapp.utils import is_running, list_images, list_patches
 import time
 
 def patchtool_index(request):

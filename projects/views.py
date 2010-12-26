@@ -1,6 +1,6 @@
 from django.shortcuts import render_to_response 
 import os
-from tkldevenv.utils import lastupdated
+from tkldevenv_webapp.utils import lastupdated
 
 def projects_index(request):
     projectlist=[]

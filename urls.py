@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import *
 from django.conf import settings
-from tkldevenv-webapp.views import *
+from tkldevenv_webapp.views import *
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -8,11 +8,11 @@ from tkldevenv-webapp.views import *
 
 urlpatterns = patterns('',
     # Example:
-    (r'^patchtool/', include('tkldevenv.patchtool.urls')),
-    (r'^baseimages/', include('tkldevenv.baseimages.urls')),
-    (r'^patches/', include('tkldevenv.patches.urls')),
-    (r'^projects/', include('tkldevenv.projects.urls')),
-    (r'^output/', include('tkldevenv.output.urls')), 
+    (r'^patchtool/', include('tkldevenv_webapp.patchtool.urls')),
+    (r'^baseimages/', include('tkldevenv_webapp.baseimages.urls')),
+    (r'^patches/', include('tkldevenv_webapp.patches.urls')),
+    (r'^projects/', include('tkldevenv_webapp.projects.urls')),
+    (r'^output/', include('tkldevenv_webapp.output.urls')), 
     (r'^site_media/(?P<path>.*)$', 'django.views.static.serve',
         {'document_root': settings.STATIC_DOC_ROOT}),
     (r'^$', main)
