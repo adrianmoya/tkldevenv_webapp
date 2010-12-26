@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import *
-from tkldevenv.patchtool.views import *
+from tkldevenv-webapp.patchtool.views import *
 
 urlpatterns = patterns('',
     ('^$', patchtool_index),

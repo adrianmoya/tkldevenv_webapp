@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import *
 from django.conf import settings
-from tkldevenv.views import *
+from tkldevenv-webapp.views import *
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin

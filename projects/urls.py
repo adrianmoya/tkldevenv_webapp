@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import *
-from tkldevenv.projects.views import *
+from tkldevenv-webapp.projects.views import *
 
 urlpatterns = patterns('',
     ('^$', projects_index),

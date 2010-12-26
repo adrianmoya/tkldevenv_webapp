@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import *
-from tkldevenv.baseimages.views import *
+from tkldevenv-webapp.baseimages.views import *
 
 urlpatterns = patterns('',
     ('^$', images_index),
