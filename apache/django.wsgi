@@ -5,7 +5,7 @@ path = '/opt'
 if path not in sys.path:
         sys.path.append(path)
 
-os.environ['DJANGO_SETTINGS_MODULE'] = 'tkldevenv-webapp.settings'
+os.environ['DJANGO_SETTINGS_MODULE'] = 'tkldevenv_webapp.settings'
 
 import django.core.handlers.wsgi
 application = django.core.handlers.wsgi.WSGIHandler()

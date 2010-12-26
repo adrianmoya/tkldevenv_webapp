@@ -1,20 +1,28 @@
 {% extends "baseimages/base_baseimages.html" %}
 {% block content %}
+<h3>List of available images for download</h3>
 <table id="baseimagetable" class="center">
-   <thead>
-      <tr><th>Available Images</th><th>Actions</th></tr>
-   </thead>
-   <tbody>
- {% for x in imagelist %}
-     <tr class="{% cycle 'odd' 'even' %}">
-         <td>{{ x }}</td>
-	 <td><form method="POST" action="../getimage/">{% csrf_token %}
-		<input type="hidden" name="image" value="{{ x }}">
- 		<input type="submit" value="Download">
-	</form></td>
-      </tr>
- {% endfor %}
-  </tbody>
+    <thead>
+        <tr><th>Available Images</th><th>Actions</th></tr>
+    </thead>
+    <tbody>
+        {% if imagelist %}
+            {% for x in imagelist %}
+                <tr class="{% cycle 'odd' 'even' %}">
+                <td>{{ x }}</td>
+                <td><form method="POST" action="../getimage/">{% csrf_token %}
+                <input type="hidden" name="image" value="{{ x }}">
+                <input type="submit" value="Download">
+                </form></td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tr><td>No baseimages list available.</td></tr>    
+        {% endif %}
+    </tbody>
 </table>
+<div id="refresbaseimages" class="center">
+    <a href="/baseimages/refreshfile">Refresh Baseimage list file</a>
+</div>
 <div id="backlink" class="center"><a href="/patchtool">Back to Patchtool</a></div>
 {% endblock %}

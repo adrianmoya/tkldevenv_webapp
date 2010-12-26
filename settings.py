@@ -99,4 +99,10 @@ INSTALLED_APPS = (
 
 STATIC_DOC_ROOT = os.path.join(os.path.dirname(__file__), 'media').replace('\\', '/')
 
+# TKLDEVENV Settings
+TKLPATCH_BASEIMAGES_FILE = '/usr/local/share/tklpatch/baseimagelist'
+TKLPATCH_PROJECTS_ROOT = '/srv/tklpatch/projects'
+TKLPATCH_BASEIMAGES_ROOT = '/srv/tklpatch/base-images'
+TKLPATCH_PATCHES_ROOT = '/srv/tklpatch/patches'
+TKLPATCH_OUTPUT_ROOT = '/srv/tklpatch/patched-isos'
 TKLPATCH_LOGS_ROOT = '/var/log/tklpatch/'
