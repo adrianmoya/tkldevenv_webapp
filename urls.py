@@ -13,8 +13,8 @@ urlpatterns = patterns('',
     (r'^patches/', include('tkldevenv_webapp.patches.urls')),
     (r'^projects/', include('tkldevenv_webapp.projects.urls')),
     (r'^output/', include('tkldevenv_webapp.output.urls')), 
-    (r'^site_media/(?P<path>.*)$', 'django.views.static.serve',
-        {'document_root': settings.STATIC_DOC_ROOT}),
+    # (r'^site_media/(?P<path>.*)$', 'django.views.static.serve',
+    #    {'document_root': settings.STATIC_DOC_ROOT}),
     (r'^$', main)
     
     # Uncomment the admin/doc line below to enable admin documentation:

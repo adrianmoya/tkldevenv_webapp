@@ -161,6 +161,10 @@ border-top: none;
   padding: 10px 20px 10px 20px;
 }
 
+.pressed{
+    background: #b9c7d2;
+}
+
 p {
   margin-top: 10px;
 }

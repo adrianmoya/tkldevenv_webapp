@@ -17,7 +17,7 @@
         </div>
         <div id="navbar" class="container_12">
             <ul id="nav">
-                <li><a href="/projects">Projects</a></li>
+                <li{% ifequal topmenu "projects" %}class="pressed"{% endifequal %}><a href="/projects">Projects</a></li>
                 <li><a href="/baseimages">Base Images</a></li>
                 <li><a href="/patches">Patches</a></li>
                 <li><a href="/output">Output</a></li>
@@ -35,7 +35,7 @@
         </div>
         <div id="footer" class="container_12 roundBottom"> 
             <div id="credits" class="grid_12">
-                <p class="small">Copyright (c) 2010 Adrian E. Moya G. <adrian@turnkeylinux.org> All rights reserved</p>
+                <p class="small">Copyright (c) 2011 Adrian E. Moya G. <adrian@turnkeylinux.org> All rights reserved</p>
             </div>
             <div class="clear"></div>
         </div>
