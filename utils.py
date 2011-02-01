@@ -2,6 +2,7 @@ from subprocess import Popen, PIPE
 import glob
 import time
 import os.path
+from django import forms
 
 def is_running(process):
     processes = Popen(['ps', 'xa', '-o','args'], stdout=PIPE)
@@ -31,3 +32,17 @@ def list_output_isos():
     isos = glob.glob("/srv/tklpatch/patched-isos/*")
     isos = [x.replace('/srv/tklpatch/patched-isos/','') for x in isos]
     return isos
+
+def handle_upload_file(f, dest):
+    destination = open(dest+f.name, 'wb+')
+    for chunk in f.chunks():
+        destination.write(chunk)
+    destination.close()
+
+class UploadFileForm(forms.Form):
+    file  = forms.FileField()
+    def clean_file(self):
+        data = self.cleaned_data['file']
+        if data.name != "hudson.tar.gz":
+            raise forms.ValidationError("The patch is not hudson!")
+        return data

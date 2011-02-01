@@ -3,4 +3,5 @@ from tkldevenv_webapp.patches.views import *
 
 urlpatterns = patterns('',
     ('^$', patches_index),
+    (r'^upload/$', patches_upload),
 )
