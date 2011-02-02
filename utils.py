@@ -41,8 +41,3 @@ def handle_upload_file(f, dest):
 
 class UploadFileForm(forms.Form):
     file  = forms.FileField()
-    def clean_file(self):
-        data = self.cleaned_data['file']
-        if data.name != "hudson.tar.gz":
-            raise forms.ValidationError("The patch is not hudson!")
-        return data

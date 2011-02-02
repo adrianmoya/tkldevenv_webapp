@@ -1,7 +1,7 @@
 {% extends "patches/base_patches.html" %}
 {% block content %}
 <h3>Upload a patch</h3>
-
+<p>{{ messages }}</p>
 <form action="/patches/upload/" method="post" enctype="multipart/form-data">
 {% csrf_token %}
 {{ form.as_p }}
