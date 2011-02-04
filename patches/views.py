@@ -44,7 +44,6 @@ def patches_upload(request):
                 os.symlink(linktarget, linkname)
             except:
                 messages = "There was an error uploading the patch"
-                raise
             else:
                 messages = "Patch %s uploaded successfully" % (patchname)
     else:

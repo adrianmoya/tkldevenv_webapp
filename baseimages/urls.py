@@ -6,4 +6,5 @@ urlpatterns = patterns('',
     (r'^listimages/$', available_images),
     (r'^getimage/$', get_image),
     (r'^refreshfile/$', refresh_list),
+    (r'^upload/$', baseimage_upload),
 )

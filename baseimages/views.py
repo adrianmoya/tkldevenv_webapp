@@ -6,6 +6,10 @@ from subprocess import Popen, PIPE
 import os.path
 from tkldevenv_webapp.utils import is_running, list_images
 import glob
+from tkldevenv_webapp.utils import UploadFileForm
+from tkldevenv_webapp.settings import TKLPATCH_BASEIMAGES_ROOT
+from django import forms
+from tkldevenv_webapp.utils import handle_upload_file
 
 def images_index(request):
     baseimagelist = list_images()
@@ -52,3 +56,34 @@ def refresh_list(request):
         return HttpResponseRedirect('/baseimages/getimage/')
     Popen(['tklpatch-getimage','--update']).wait()
     return HttpResponseRedirect('/baseimages/listimages')
+
+def baseimage_upload(request):
+    messages = ""
+    if request.method == 'POST':
+        form = UploadBaseimageForm(request.POST, request.FILES)   
+        if form.is_valid():
+            file = request.FILES['file']
+            filename = str(file.name)
+            baseimagedir = TKLPATCH_BASEIMAGES_ROOT
+            if os.path.exists("%s%s" % (baseimagedir, filename)):
+                messages = "The image already exists"
+            else:
+                try:
+                    handle_upload_file(request.FILES['file'],baseimagedir)
+                except:
+                    messages = "There was an error uploading the image file"
+                    raise
+                else:
+                    messages = "Base image %s uploaded successfully" % (filename)
+    else:
+        form = UploadBaseimageForm()
+    return render_to_response("baseimages/upload.html",{"form": form, "messages": messages}, context_instance=RequestContext(request))
+
+
+class UploadBaseimageForm(UploadFileForm):
+    def clean_file(self):
+        data = self.cleaned_data['file']
+        filename = str(data.name)
+        if not filename.endswith(".iso"):
+            raise forms.ValidationError("The file is not an iso file!")
+        return data
